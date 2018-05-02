@@ -48,7 +48,7 @@ Var StartMenuGroup
 !insertmacro MUI_LANGUAGE English
 
 # Installer attributes
-OutFile /root/ALMEX/almex-${VERSION}-win-setup.exe
+OutFile /root/listedlinked/almex-${VERSION}-win-setup.exe
 !if "" == "64"
 InstallDir $PROGRAMFILES64\ALMEX
 !else

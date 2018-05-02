@@ -10,9 +10,9 @@ Type=forking
 PIDFile=/var/lib/almexd/almexd.pid
 
 ExecStart=/usr/bin/almexd -daemon -pid=/var/lib/almexd/almexd.pid \
-          -conf=/etc/almex/almex.conf -datadir=/var/lib/almexd
+          -conf=/etc/listedlinked/almex.conf -datadir=/var/lib/almexd
 
-ExecStop=-/usr/bin/almex-cli -conf=/etc/almex/almex.conf \
+ExecStop=-/usr/bin/almex-cli -conf=/etc/listedlinked/almex.conf \
          -datadir=/var/lib/almexd stop
 
 Restart=always

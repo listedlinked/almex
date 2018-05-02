@@ -7,7 +7,7 @@ architectures:
 packages:
 - "faketime"
 remotes:
-- "url": "https://github.com/ALMEX/ALMEX.SIGS.git"
+- "url": "https://github.com/listedlinked/almex.SIGS.git"
   "dir": "signature"
 files:
 - "almex-osx-unsigned.tar.gz"

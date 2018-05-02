@@ -23,8 +23,8 @@ Build-Depends: debhelper,
  libprotobuf-dev, protobuf-compiler
 Standards-Version: 3.9.2
 Homepage:http://bit.almexs/
-Vcs-Git: git://github.com/ALMEX/ALMEX
-Vcs-Browser: http://github.com/ALMEX/ALMEX
+Vcs-Git: git://github.com/listedlinked/almex
+Vcs-Browser: http://github.com/listedlinked/almex
 
 Package: almexd
 Architecture: any

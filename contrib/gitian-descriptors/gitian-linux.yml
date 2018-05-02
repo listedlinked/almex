@@ -29,7 +29,7 @@ packages:
 - "python"
 reference_datetime: "2015-06-01 00:00:00"
 remotes:
-- "url": "https://github.com/almex/almex.git"
+- "url": "https://github.com/listedlinked/almex.git"
   "dir": "almex"
 files: []
 script: |
