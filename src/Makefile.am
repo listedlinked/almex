@@ -64,15 +64,15 @@ bin_PROGRAMS =
 TESTS =
 
 if BUILD_BITCOIND
-  bin_PROGRAMS += almexd
+  bin_PROGRAMS += bbeed
 endif
 
 if BUILD_BITCOIN_UTILS
-  bin_PROGRAMS += almex-cli almex-tx
+  bin_PROGRAMS += bbee-cli bbee-tx
 endif
 
 .PHONY: FORCE
-# almex core #
+# bbee core #
 BITCOIN_CORE_H = \
   activemasternode.h \
   addrman.h \
@@ -180,7 +180,7 @@ obj/build.h: FORCE
 	  $(abs_top_srcdir)
 libbitcoin_util_a-clientversion.$(OBJEXT): obj/build.h
 
-# server: shared between almexd and almex-qt
+# server: shared between bbeed and bbee-qt
 libbitcoin_server_a_CPPFLAGS = $(BITCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(BOOST_CPPFLAGS)
 libbitcoin_server_a_SOURCES = \
   addrman.cpp \
@@ -224,7 +224,7 @@ libbitcoin_zmq_a_SOURCES = \
   zmq/zmqpublishnotifier.cpp
 endif
 
-# wallet: shared between almexd and almex-qt, but only linked
+# wallet: shared between bbeed and bbee-qt, but only linked
 # when wallet enabled
 
 libbitcoin_wallet_a_CFLAGS = -fPIC
@@ -295,7 +295,7 @@ univalue_libbitcoin_univalue_a_SOURCES = \
   univalue/univalue_escapes.h \
   univalue/univalue.h
 
-# common: shared between almexd, and almex-qt and non-server tools
+# common: shared between bbeed, and bbee-qt and non-server tools
 libbitcoin_common_a_CPPFLAGS = $(BITCOIN_INCLUDES)
 libbitcoin_common_a_SOURCES = \
   allocators.cpp \
@@ -351,7 +351,7 @@ libbitcoin_util_a_SOURCES += compat/glibc_compat.cpp
 libbitcoin_util_a_SOURCES += compat/glibcxx_compat.cpp
 endif
 
-# cli: shared between almex-cli and almex-qt
+# cli: shared between bbee-cli and bbee-qt
 libbitcoin_cli_a_CPPFLAGS = $(BITCOIN_INCLUDES)
 libbitcoin_cli_a_SOURCES = \
   rpcclient.cpp \
@@ -361,7 +361,7 @@ nodist_libbitcoin_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
 # bitcoind binary #
-almexd_LDADD = \
+bbeed_LDADD = \
   $(LIBBITCOIN_SERVER) \
   $(LIBBITCOIN_COMMON) \
   $(LIBBITCOIN_UNIVALUE) \
@@ -372,40 +372,40 @@ almexd_LDADD = \
   $(LIBSECP256K1)
 
 if ENABLE_ZMQ
-almexd_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
+bbeed_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
 endif
 
 if ENABLE_WALLET
-almexd_LDADD += libbitcoin_wallet.a
+bbeed_LDADD += libbitcoin_wallet.a
 endif
-almexd_SOURCES = almexd.cpp
+bbeed_SOURCES = bbeed.cpp
 #
 
 if TARGET_WINDOWS
-almexd_SOURCES += almexd-res.rc
+bbeed_SOURCES += bbeed-res.rc
 endif
 
-almexd_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS)
-almexd_CPPFLAGS = $(BITCOIN_INCLUDES)
-almexd_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+bbeed_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS)
+bbeed_CPPFLAGS = $(BITCOIN_INCLUDES)
+bbeed_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 
-# almex-cli binary #
-almex_cli_LDADD = \
+# bbee-cli binary #
+bbee_cli_LDADD = \
   $(LIBBITCOIN_CLI) \
   $(LIBBITCOIN_UTIL) \
   $(BOOST_LIBS) \
   $(SSL_LIBS) \
   $(CRYPTO_LIBS)
 
-almex_cli_SOURCES = \
-  almex-cli.cpp
+bbee_cli_SOURCES = \
+  bbee-cli.cpp
 
-almex_cli_CPPFLAGS = $(BITCOIN_INCLUDES)
+bbee_cli_CPPFLAGS = $(BITCOIN_INCLUDES)
 #
 
-# almex-tx binary #
-almex_tx_LDADD = \
+# bbee-tx binary #
+bbee_tx_LDADD = \
   $(LIBBITCOIN_UNIVALUE) \
   $(LIBBITCOIN_COMMON) \
   $(LIBBITCOIN_UTIL) \
@@ -414,15 +414,15 @@ almex_tx_LDADD = \
   $(BOOST_LIBS) \
   $(CRYPTO_LIBS)
 
-almex_tx_SOURCES = almex-tx.cpp
-almex_tx_CPPFLAGS = $(BITCOIN_INCLUDES)
+bbee_tx_SOURCES = bbee-tx.cpp
+bbee_tx_CPPFLAGS = $(BITCOIN_INCLUDES)
 #
-almex_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+bbee_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-almex_cli_SOURCES += almex-cli-res.rc
+bbee_cli_SOURCES += bbee-cli-res.rc
 endif
-almex_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+bbee_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if BUILD_BITCOIN_LIBS
 include_HEADERS = script/bitcoinconsensus.h

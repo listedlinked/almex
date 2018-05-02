@@ -1,19 +1,19 @@
 [Unit]
-Description=ALMEX's distributed currency daemon
+Description=BBEE's distributed currency daemon
 After=network.target
 
 [Service]
-User=almex
-Group=almex
+User=bbee
+Group=bbee
 
 Type=forking
-PIDFile=/var/lib/almexd/almexd.pid
+PIDFile=/var/lib/bbeed/bbeed.pid
 
-ExecStart=/usr/bin/almexd -daemon -pid=/var/lib/almexd/almexd.pid \
-          -conf=/etc/listedlinked/almex.conf -datadir=/var/lib/almexd
+ExecStart=/usr/bin/bbeed -daemon -pid=/var/lib/bbeed/bbeed.pid \
+          -conf=/etc/listedlinked/bbee.conf -datadir=/var/lib/bbeed
 
-ExecStop=-/usr/bin/almex-cli -conf=/etc/listedlinked/almex.conf \
-         -datadir=/var/lib/almexd stop
+ExecStop=-/usr/bin/bbee-cli -conf=/etc/listedlinked/bbee.conf \
+         -datadir=/var/lib/bbeed stop
 
 Restart=always
 PrivateTmp=true

@@ -10,10 +10,10 @@
 
 /**
  * Name of client reported in the 'version' message. Report the same name
- * for both almexd and almex-qt, to make it harder for attackers to
+ * for both bbeed and bbee-qt, to make it harder for attackers to
  * target servers or GUI users specifically.
  */
-const std::string CLIENT_NAME("Almex Core");
+const std::string CLIENT_NAME("Bbee Core");
 
 /**
  * Client version number

@@ -2,24 +2,24 @@
 
 # backward compatibility for existing gentoo layout
 #
-if [ -d "/var/lib/almex/.almex" ]; then
-	BITCOIND_DEFAULT_DATADIR="/var/lib/almex/.almex"
+if [ -d "/var/lib/bbee/.bbee" ]; then
+	BITCOIND_DEFAULT_DATADIR="/var/lib/bbee/.bbee"
 else
-	BITCOIND_DEFAULT_DATADIR="/var/lib/almexd"
+	BITCOIND_DEFAULT_DATADIR="/var/lib/bbeed"
 fi
 
-BITCOIND_CONFIGFILE=${BITCOIND_CONFIGFILE:-/etc/listedlinked/almex.conf}
-BITCOIND_PIDDIR=${BITCOIND_PIDDIR:-/var/run/almexd}
-BITCOIND_PIDFILE=${BITCOIND_PIDFILE:-${BITCOIND_PIDDIR}/almexd.pid}
+BITCOIND_CONFIGFILE=${BITCOIND_CONFIGFILE:-/etc/listedlinked/bbee.conf}
+BITCOIND_PIDDIR=${BITCOIND_PIDDIR:-/var/run/bbeed}
+BITCOIND_PIDFILE=${BITCOIND_PIDFILE:-${BITCOIND_PIDDIR}/bbeed.pid}
 BITCOIND_DATADIR=${BITCOIND_DATADIR:-${BITCOIND_DEFAULT_DATADIR}}
-BITCOIND_USER=${BITCOIND_USER:-almex}
-BITCOIND_GROUP=${BITCOIND_GROUP:-almex}
-BITCOIND_BIN=${BITCOIND_BIN:-/usr/bin/almexd}
+BITCOIND_USER=${BITCOIND_USER:-bbee}
+BITCOIND_GROUP=${BITCOIND_GROUP:-bbee}
+BITCOIND_BIN=${BITCOIND_BIN:-/usr/bin/bbeed}
 
-name="Almex Core Daemon"
-description="ALMEX crypto-currency p2p network daemon"
+name="Bbee Core Daemon"
+description="BBEE crypto-currency p2p network daemon"
 
-command="/usr/bin/almexd"
+command="/usr/bin/bbeed"
 command_args="-pid=\"${BITCOIND_PIDFILE}\" \
 		-conf=\"${BITCOIND_CONFIGFILE}\" \
 		-datadir=\"${BITCOIND_DATADIR}\" \
@@ -65,7 +65,7 @@ checkconfig()
 {
 	if ! grep -qs '^rpcpassword=' "${BITCOIND_CONFIGFILE}" ; then
 		eerror ""
-		eerror "ERROR: You must set a secure rpcpassword to run almexd."
+		eerror "ERROR: You must set a secure rpcpassword to run bbeed."
 		eerror "The setting must appear in ${BITCOIND_CONFIGFILE}"
 		eerror ""
 		eerror "This password is security critical to securing wallets "
@@ -78,7 +78,7 @@ checkconfig()
 		eerror "It is also recommended that you also set alertnotify so you are "
 		eerror "notified of problems:"
 		eerror ""
-		eerror "ie: alertnotify=echo %%s | mail -s \"ALMEX Alert\"" \
+		eerror "ie: alertnotify=echo %%s | mail -s \"BBEE Alert\"" \
 			"admin@foo.com"
 		eerror ""
 		return 1

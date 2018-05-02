@@ -1,25 +1,25 @@
-# /etc/conf.d/almexd: config file for /etc/init.d/almexd
+# /etc/conf.d/bbeed: config file for /etc/init.d/bbeed
 
 # Config file location
-#BITCOIND_CONFIGFILE="/etc/listedlinked/almex.conf"
+#BITCOIND_CONFIGFILE="/etc/listedlinked/bbee.conf"
 
 # What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
-#BITCOIND_PIDDIR="/var/run/almexd"
+#BITCOIND_PIDDIR="/var/run/bbeed"
 
 # What filename to give the pidfile
-#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/almexd.pid"
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/bbeed.pid"
 
-# Where to write almexd data (be mindful that the blockchain is large)
-#BITCOIND_DATADIR="/var/lib/almexd"
+# Where to write bbeed data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/bbeed"
 
-# User and group to own almexd process
-#BITCOIND_USER="almex"
-#BITCOIND_GROUP="almex"
+# User and group to own bbeed process
+#BITCOIND_USER="bbee"
+#BITCOIND_GROUP="bbee"
 
-# Path to almexd executable
-#BITCOIND_BIN="/usr/bin/almexd"
+# Path to bbeed executable
+#BITCOIND_BIN="/usr/bin/bbeed"
 
-# Nice value to run almexd under
+# Nice value to run bbeed under
 #BITCOIND_NICE=0
 
 # Additional options (avoid -conf and -datadir, use flags above)

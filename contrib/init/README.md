@@ -1,10 +1,10 @@
 Sample configuration files for:
 
-SystemD: almexd.service
-Upstart: almexd.conf
-OpenRC:  almexd.openrc
-         almexd.openrcconf
-CentOS:  almexd.init
+SystemD: bbeed.service
+Upstart: bbeed.conf
+OpenRC:  bbeed.openrc
+         bbeed.openrcconf
+CentOS:  bbeed.init
 
 have been made available to assist packagers in creating node packages here.
 

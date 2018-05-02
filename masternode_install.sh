@@ -1,15 +1,15 @@
 #!/bin/bash
 
 TMP_FOLDER=$(mktemp -d)
-CONFIG_FILE='almex.conf'
-CONFIGFOLDER='/root/.almex'
-COIN_DAEMON='almexd'
-COIN_CLI='almex-cli'
+CONFIG_FILE='bbee.conf'
+CONFIGFOLDER='/root/.bbee'
+COIN_DAEMON='bbeed'
+COIN_CLI='bbee-cli'
 COIN_PATH='/usr/local/bin/'
-COIN_REPO='https://github.com/listedlinked/almex.git'
+COIN_REPO='https://github.com/listedlinked/bbee.git'
 COIN_TGZ=''
 COIN_ZIP=$(echo $COIN_TGZ | awk -F'/' '{print $NF}')
-COIN_NAME='Almex'
+COIN_NAME='Bbee'
 COIN_PORT=10001
 RPC_PORT=10002
 

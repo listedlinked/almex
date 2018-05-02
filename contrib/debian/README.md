@@ -1,21 +1,21 @@
 
 Debian
 ====================
-This directory contains files used to package almexd/almex-qt
-for Debian-based Linux systems. If you compile almexd/almex-qt yourself, there are some useful files here.
+This directory contains files used to package bbeed/bbee-qt
+for Debian-based Linux systems. If you compile bbeed/bbee-qt yourself, there are some useful files here.
 
-## almex: URI support ##
+## bbee: URI support ##
 
 
-almex-qt.desktop  (Gnome / Open Desktop)
+bbee-qt.desktop  (Gnome / Open Desktop)
 To install:
 
-	sudo desktop-file-install almex-qt.desktop
+	sudo desktop-file-install bbee-qt.desktop
 	sudo update-desktop-database
 
 If you build yourself, you will either need to modify the paths in
-the .desktop file or copy or symlink your almexqt binary to `/usr/bin`
-and the `../../share/pixmaps/almex128.png` to `/usr/share/pixmaps`
+the .desktop file or copy or symlink your bbeeqt binary to `/usr/bin`
+and the `../../share/pixmaps/bbee128.png` to `/usr/share/pixmaps`
 
-almex-qt.protocol (KDE)
+bbee-qt.protocol (KDE)
 

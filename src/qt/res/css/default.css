@@ -775,12 +775,12 @@ QDialog#HelpMessageDialog QScrollBar:vertical, QDialog#HelpMessageDialog QScroll
 border:0;
 }
 
-/* About ALMEX Dialog */
-QDialog#AboutDialog QLabel#label, QDialog#AboutDialog QLabel#copyrightLabel, QDialog#AboutDialog QLabel#label_2 { /* About ALMEX Contents */
+/* About BBEE Dialog */
+QDialog#AboutDialog QLabel#label, QDialog#AboutDialog QLabel#copyrightLabel, QDialog#AboutDialog QLabel#label_2 { /* About BBEE Contents */
 margin-left:10px;
 }
 
-QDialog#AboutDialog QLabel#label_2 { /* Margin for About ALMEX text */
+QDialog#AboutDialog QLabel#label_2 { /* Margin for About BBEE text */
 margin-right:10px;
 }
 
@@ -1133,7 +1133,7 @@ min-width:410px;
 margin-right:20px;
 margin-left:0;
 margin-top:0;
-background-image: url(':/images/almex_logo_horizontal');
+background-image: url(':/images/bbee_logo_horizontal');
 background-repeat:none;
 }
 

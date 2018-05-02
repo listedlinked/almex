@@ -1,7 +1,7 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2017 The PIVX developers 
-// Copyright (c) 2018 The Almex developers
+// Copyright (c) 2018 The Bbee developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -33,7 +33,7 @@ class TxViewDelegate : public QAbstractItemDelegate
 {
     Q_OBJECT
 public:
-    TxViewDelegate() : QAbstractItemDelegate(), unit(BitcoinUnits::ALMEX)
+    TxViewDelegate() : QAbstractItemDelegate(), unit(BitcoinUnits::BBEE)
     {
     }
 
@@ -283,7 +283,7 @@ void OverviewPage::setWalletModel(WalletModel* model)
         connect(model, SIGNAL(notifyWatchonlyChanged(bool)), this, SLOT(updateWatchOnlyLabels(bool)));
     }
 
-    // update the display unit, to not use the default ("ALMEX")
+    // update the display unit, to not use the default ("BBEE")
     updateDisplayUnit();
 }
 
@@ -322,15 +322,15 @@ void OverviewPage::updateDarksendProgress()
     if (!pwalletMain) return;
 
     QString strAmountAndRounds;
-    QString strAnonymizeALMEXAmount = BitcoinUnits::formatHtmlWithUnit(nDisplayUnit, nAnonymizeALMEXAmount * COIN, false, BitcoinUnits::separatorAlways);
+    QString strAnonymizeBBEEAmount = BitcoinUnits::formatHtmlWithUnit(nDisplayUnit, nAnonymizeBBEEAmount * COIN, false, BitcoinUnits::separatorAlways);
 
     if (currentBalance == 0) {
         ui->DarksendProgress->setValue(0);
         ui->DarksendProgress->setToolTip(tr("No inputs detected"));
 
         // when balance is zero just show info from settings
-        strAnonymizeALMEXAmount = strAnonymizeALMEXAmount.remove(strAnonymizeALMEXAmount.indexOf("."), BitcoinUnits::decimals(nDisplayUnit) + 1);
-        strAmountAndRounds = strAnonymizeALMEXAmount + " / " + tr("%n Rounds", "", nDarksendRounds);
+        strAnonymizeBBEEAmount = strAnonymizeBBEEAmount.remove(strAnonymizeBBEEAmount.indexOf("."), BitcoinUnits::decimals(nDisplayUnit) + 1);
+        strAmountAndRounds = strAnonymizeBBEEAmount + " / " + tr("%n Rounds", "", nDarksendRounds);
 
         ui->labelAmountRounds->setToolTip(tr("No inputs detected"));
         ui->labelAmountRounds->setText(strAmountAndRounds);
@@ -357,20 +357,20 @@ void OverviewPage::updateDarksendProgress()
     CAmount nMaxToAnonymize = nAnonymizableBalance + currentAnonymizedBalance + nDenominatedUnconfirmedBalance;
 
     // If it's more than the anon threshold, limit to that.
-    if (nMaxToAnonymize > nAnonymizeALMEXAmount * COIN) nMaxToAnonymize = nAnonymizeALMEXAmount * COIN;
+    if (nMaxToAnonymize > nAnonymizeBBEEAmount * COIN) nMaxToAnonymize = nAnonymizeBBEEAmount * COIN;
 
     if (nMaxToAnonymize == 0) return;
 
-    if (nMaxToAnonymize >= nAnonymizeALMEXAmount * COIN) {
+    if (nMaxToAnonymize >= nAnonymizeBBEEAmount * COIN) {
         ui->labelAmountRounds->setToolTip(tr("Found enough compatible inputs to anonymize %1")
-                                              .arg(strAnonymizeALMEXAmount));
-        strAnonymizeALMEXAmount = strAnonymizeALMEXAmount.remove(strAnonymizeALMEXAmount.indexOf("."), BitcoinUnits::decimals(nDisplayUnit) + 1);
-        strAmountAndRounds = strAnonymizeALMEXAmount + " / " + tr("%n Rounds", "", nDarksendRounds);
+                                              .arg(strAnonymizeBBEEAmount));
+        strAnonymizeBBEEAmount = strAnonymizeBBEEAmount.remove(strAnonymizeBBEEAmount.indexOf("."), BitcoinUnits::decimals(nDisplayUnit) + 1);
+        strAmountAndRounds = strAnonymizeBBEEAmount + " / " + tr("%n Rounds", "", nDarksendRounds);
     } else {
         QString strMaxToAnonymize = BitcoinUnits::formatHtmlWithUnit(nDisplayUnit, nMaxToAnonymize, false, BitcoinUnits::separatorAlways);
         ui->labelAmountRounds->setToolTip(tr("Not enough compatible inputs to anonymize <span style='color:red;'>%1</span>,<br>"
                                              "will anonymize <span style='color:red;'>%2</span> instead")
-                                              .arg(strAnonymizeALMEXAmount)
+                                              .arg(strAnonymizeBBEEAmount)
                                               .arg(strMaxToAnonymize));
         strMaxToAnonymize = strMaxToAnonymize.remove(strMaxToAnonymize.indexOf("."), BitcoinUnits::decimals(nDisplayUnit) + 1);
         strAmountAndRounds = "<span style='color:red;'>" +
@@ -541,7 +541,7 @@ void OverviewPage::toggleDarksend()
 
         /* show Darksend configuration if client has defaults set */
 
-        if (nAnonymizeALMEXAmount == 0) {
+        if (nAnonymizeBBEEAmount == 0) {
             DarksendConfig dlg(this);
             dlg.setModel(walletModel);
             dlg.exec();

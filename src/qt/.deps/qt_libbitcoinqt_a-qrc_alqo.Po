@@ -1,4 +1,4 @@
-qt/qt_libbitcoinqt_a-qrc_almex.o: qt/qrc_almex.cpp \
+qt/qt_libbitcoinqt_a-qrc_bbee.o: qt/qrc_bbee.cpp \
  /usr/include/stdc-predef.h
 
 /usr/include/stdc-predef.h:

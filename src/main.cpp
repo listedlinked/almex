@@ -2,7 +2,7 @@
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2017 The PIVX developers 
-// Copyright (c) 2018 The Almex developers
+// Copyright (c) 2018 The Bbee developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -42,7 +42,7 @@ using namespace boost;
 using namespace std;
 
 #if defined(NDEBUG)
-#error "Almex cannot be compiled without assertions."
+#error "Bbee cannot be compiled without assertions."
 #endif
 
 /**
@@ -96,7 +96,7 @@ static void CheckBlockIndex();
 /** Constant stuff for coinbase transactions we create: */
 CScript COINBASE_FLAGS;
 
-const string strMessageMagic = "Almex Signed Message:\n";
+const string strMessageMagic = "Bbee Signed Message:\n";
 
 // Internal stuff
 namespace
@@ -1625,13 +1625,13 @@ int64_t GetBlockValue(int nHeight)
 		
 	int64_t nSubsidy;
 	
-	if( nHeight > 1 && nHeight <= 3000 ) {
+	if( nHeight > 1 && nHeight <= 20 ) {
 	        nSubsidy = 1 * COIN;
-	} else if( nHeight > 3000 && nHeight <= 3500 ) {
+	} else if( nHeight > 20 && nHeight <= 100 ) {
 	        nSubsidy = 5 * COIN;
-	} else if( nHeight > 3500 && nHeight <= 7500 ) {
+	} else if( nHeight > 100 && nHeight <= 120 ) {
 	        nSubsidy = 20 * COIN;
-	} else if( nHeight > 7500 && nHeight <= 20000 ) {
+	} else if( nHeight > 120 && nHeight <= 200 ) {
 	        nSubsidy = 25 * COIN;
 	} else {
 		nSubsidy = 30 * COIN;
@@ -2036,7 +2036,7 @@ static CCheckQueue<CScriptCheck> scriptcheckqueue(128);
 
 void ThreadScriptCheck()
 {
-    RenameThread("almex-scriptch");
+    RenameThread("bbee-scriptch");
     scriptcheckqueue.Thread();
 }
 

@@ -78,7 +78,7 @@ HEADERS += src/activemasternode.h \
            src/crypter.h \
            src/Darksend-relay.h \
            src/Darksend.h \
-           src/almex-config.h \
+           src/bbee-config.h \
            src/db.h \
            src/eccryptoverify.h \
            src/ecwrapper.h \
@@ -131,7 +131,7 @@ HEADERS += src/activemasternode.h \
            src/wallet_ismine.h \
            src/walletdb.h \
            src/compat/sanity.h \
-           src/config/almex-config.h \
+           src/config/bbee-config.h \
            src/crypto/common.h \
            src/crypto/hmac_sha256.h \
            src/crypto/hmac_sha512.h \
@@ -334,7 +334,7 @@ HEADERS += src/activemasternode.h \
            src/secp256k1/src/java/org_bitcoin_NativeSecp256k1.h \
            src/crypto/aes_helper.c \
            src/qt/bitcoinamountfield.moc \
-           src/qt/almex.moc \
+           src/qt/bbee.moc \
            src/qt/intro.moc \
            src/qt/overviewpage.moc \
 		   src/qt/coinmix.moc \
@@ -377,9 +377,9 @@ SOURCES += src/activemasternode.cpp \
            src/crypter.cpp \
            src/Darksend-relay.cpp \
            src/Darksend.cpp \
-           src/almex-cli.cpp \
-           src/almex-tx.cpp \
-           src/almex.cpp \
+           src/bbee-cli.cpp \
+           src/bbee-tx.cpp \
+           src/bbee.cpp \
            src/db.cpp \
            src/eccryptoverify.cpp \
            src/ecwrapper.cpp \
@@ -474,8 +474,8 @@ SOURCES += src/activemasternode.cpp \
            src/qt/coincontroltreewidget.cpp \
            src/qt/csvmodelwriter.cpp \
            src/qt/Darksendconfig.cpp \
-           src/qt/almex.cpp \
-           src/qt/almexstrings.cpp \
+           src/qt/bbee.cpp \
+           src/qt/bbeestrings.cpp \
            src/qt/editaddressdialog.cpp \
            src/qt/guiutil.cpp \
            src/qt/intro.cpp \
@@ -554,7 +554,7 @@ SOURCES += src/activemasternode.cpp \
            src/test/sighash_tests.cpp \
            src/test/sigopcount_tests.cpp \
            src/test/skiplist_tests.cpp \
-           src/test/test_almex.cpp \
+           src/test/test_bbee.cpp \
            src/test/timedata_tests.cpp \
            src/test/transaction_tests.cpp \
            src/test/uint256_tests.cpp \
@@ -645,21 +645,21 @@ SOURCES += src/activemasternode.cpp \
            src/leveldb/helpers/memenv/memenv.cc \
            src/leveldb/helpers/memenv/memenv_test.cc \
            src/secp256k1/src/java/org_bitcoin_NativeSecp256k1.c
-RESOURCES += src/qt/almex.qrc src/qt/almex_locale.qrc
+RESOURCES += src/qt/bbee.qrc src/qt/bbee_locale.qrc
 
-TRANSLATIONS += src/qt/locale/almex_bg.ts \
-                src/qt/locale/almex_de.ts \
-                src/qt/locale/almex_en.ts \
-                src/qt/locale/almex_es.ts \
-                src/qt/locale/almex_fi.ts \
-                src/qt/locale/almex_fr.ts \
-                src/qt/locale/almex_it.ts \
-                src/qt/locale/almex_ja.ts \
-                src/qt/locale/almex_pl.ts \
-                src/qt/locale/almex_pt.ts \
-                src/qt/locale/almex_ru.ts \
-                src/qt/locale/almex_sk.ts \
-                src/qt/locale/almex_sv.ts \
-                src/qt/locale/almex_vi.ts \
-                src/qt/locale/almex_zh_CN.ts \
-                src/qt/locale/almex_zh_TW.ts
+TRANSLATIONS += src/qt/locale/bbee_bg.ts \
+                src/qt/locale/bbee_de.ts \
+                src/qt/locale/bbee_en.ts \
+                src/qt/locale/bbee_es.ts \
+                src/qt/locale/bbee_fi.ts \
+                src/qt/locale/bbee_fr.ts \
+                src/qt/locale/bbee_it.ts \
+                src/qt/locale/bbee_ja.ts \
+                src/qt/locale/bbee_pl.ts \
+                src/qt/locale/bbee_pt.ts \
+                src/qt/locale/bbee_ru.ts \
+                src/qt/locale/bbee_sk.ts \
+                src/qt/locale/bbee_sv.ts \
+                src/qt/locale/bbee_vi.ts \
+                src/qt/locale/bbee_zh_CN.ts \
+                src/qt/locale/bbee_zh_TW.ts

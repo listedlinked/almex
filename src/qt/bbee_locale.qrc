@@ -1,0 +1,20 @@
+<!DOCTYPE RCC><RCC version="1.0">
+    <qresource prefix="/translations">
+        <file alias="bg">locale/bbee_bg.qm</file>
+        <file alias="de">locale/bbee_de.qm</file>
+        <file alias="en">locale/bbee_en.qm</file>
+        <file alias="es">locale/bbee_es.qm</file>
+        <file alias="fi">locale/bbee_fi.qm</file>
+        <file alias="fr">locale/bbee_fr.qm</file>
+        <file alias="it">locale/bbee_it.qm</file>
+        <file alias="ja">locale/bbee_ja.qm</file>
+        <file alias="pl">locale/bbee_pl.qm</file>
+        <file alias="pt">locale/bbee_pt.qm</file>
+        <file alias="ru">locale/bbee_ru.qm</file>
+        <file alias="sk">locale/bbee_sk.qm</file>
+        <file alias="sv">locale/bbee_sv.qm</file>
+        <file alias="vi">locale/bbee_vi.qm</file>
+        <file alias="zh_CN">locale/bbee_zh_CN.qm</file>
+        <file alias="zh_TW">locale/bbee_zh_TW.qm</file>
+    </qresource>
+</RCC>

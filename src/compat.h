@@ -7,7 +7,7 @@
 #define BITCOIN_COMPAT_H
 
 #if defined(HAVE_CONFIG_H)
-#include "config/almex-config.h"
+#include "config/bbee-config.h"
 #endif
 
 #ifdef WIN32

@@ -1,12 +1,12 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2017 The PIVX developers 
-// Copyright (c) 2018 The Almex developers
+// Copyright (c) 2018 The Bbee developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/almex-config.h"
+#include "config/bbee-config.h"
 #endif
 
 #include "optionsmodel.h"
@@ -62,7 +62,7 @@ void OptionsModel::Init()
 
     // Display
     if (!settings.contains("nDisplayUnit"))
-        settings.setValue("nDisplayUnit", BitcoinUnits::ALMEX);
+        settings.setValue("nDisplayUnit", BitcoinUnits::BBEE);
     nDisplayUnit = settings.value("nDisplayUnit").toInt();
 
     if (!settings.contains("strThirdPartyTxUrls"))
@@ -76,11 +76,11 @@ void OptionsModel::Init()
     if (!settings.contains("nDarksendRounds"))
         settings.setValue("nDarksendRounds", 2);
 
-    if (!settings.contains("nAnonymizeALMEXAmount"))
-        settings.setValue("nAnonymizeALMEXAmount", 1000);
+    if (!settings.contains("nAnonymizeBBEEAmount"))
+        settings.setValue("nAnonymizeBBEEAmount", 1000);
 
     nDarksendRounds = settings.value("nDarksendRounds").toLongLong();
-    nAnonymizeALMEXAmount = settings.value("nAnonymizeALMEXAmount").toLongLong();
+    nAnonymizeBBEEAmount = settings.value("nAnonymizeBBEEAmount").toLongLong();
 
     if (!settings.contains("fShowMasternodesTab"))
         settings.setValue("fShowMasternodesTab", masternodeConfig.getCount());
@@ -147,8 +147,8 @@ void OptionsModel::Init()
 
     if (settings.contains("nDarksendRounds"))
         SoftSetArg("-Darksendrounds", settings.value("nDarksendRounds").toString().toStdString());
-    if (settings.contains("nAnonymizeALMEXAmount"))
-        SoftSetArg("-anonymizealmexamount", settings.value("nAnonymizeALMEXAmount").toString().toStdString());
+    if (settings.contains("nAnonymizeBBEEAmount"))
+        SoftSetArg("-anonymizebbeeamount", settings.value("nAnonymizeBBEEAmount").toString().toStdString());
 
     language = settings.value("language").toString();
 }
@@ -159,7 +159,7 @@ void OptionsModel::Reset()
 
     // Remove all entries from our QSettings object
     settings.clear();
-    resetSettings = true; // Needed in almex.cpp during shotdown to also remove the window positions
+    resetSettings = true; // Needed in bbee.cpp during shotdown to also remove the window positions
 
     // default setting for OptionsModel::StartAtStartup - disabled
     if (GUIUtil::GetStartOnSystemStartup())
@@ -228,8 +228,8 @@ QVariant OptionsModel::data(const QModelIndex& index, int role) const
             return settings.value("nThreadsScriptVerif");
         case DarksendRounds:
             return QVariant(nDarksendRounds);
-        case AnonymizeALMEXAmount:
-            return QVariant(nAnonymizeALMEXAmount);
+        case AnonymizeBBEEAmount:
+            return QVariant(nAnonymizeBBEEAmount);
         case Listen:
             return settings.value("fListen");
         default:
@@ -338,10 +338,10 @@ bool OptionsModel::setData(const QModelIndex& index, const QVariant& value, int 
             settings.setValue("nDarksendRounds", nDarksendRounds);
             emit DarksendRoundsChanged(nDarksendRounds);
             break;
-        case AnonymizeALMEXAmount:
-            nAnonymizeALMEXAmount = value.toInt();
-            settings.setValue("nAnonymizeALMEXAmount", nAnonymizeALMEXAmount);
-            emit anonymizeALMEXAmountChanged(nAnonymizeALMEXAmount);
+        case AnonymizeBBEEAmount:
+            nAnonymizeBBEEAmount = value.toInt();
+            settings.setValue("nAnonymizeBBEEAmount", nAnonymizeBBEEAmount);
+            emit anonymizeBBEEAmountChanged(nAnonymizeBBEEAmount);
             break;
         case CoinControlFeatures:
             fCoinControlFeatures = value.toBool();

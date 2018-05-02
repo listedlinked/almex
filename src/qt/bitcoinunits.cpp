@@ -1,7 +1,7 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2017 The PIVX developers 
-// Copyright (c) 2018 The Almex developers
+// Copyright (c) 2018 The Bbee developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -20,18 +20,18 @@ BitcoinUnits::BitcoinUnits(QObject* parent) : QAbstractListModel(parent),
 QList<BitcoinUnits::Unit> BitcoinUnits::availableUnits()
 {
     QList<BitcoinUnits::Unit> unitlist;
-    unitlist.append(ALMEX);
-    unitlist.append(mALMEX);
-    unitlist.append(uALMEX);
+    unitlist.append(BBEE);
+    unitlist.append(mBBEE);
+    unitlist.append(uBBEE);
     return unitlist;
 }
 
 bool BitcoinUnits::valid(int unit)
 {
     switch (unit) {
-    case ALMEX:
-    case mALMEX:
-    case uALMEX:
+    case BBEE:
+    case mBBEE:
+    case uBBEE:
         return true;
     default:
         return false;
@@ -41,12 +41,12 @@ bool BitcoinUnits::valid(int unit)
 QString BitcoinUnits::id(int unit)
 {
     switch (unit) {
-    case ALMEX:
-        return QString("almex");
-    case mALMEX:
-        return QString("malmex");
-    case uALMEX:
-        return QString::fromUtf8("ualmex");
+    case BBEE:
+        return QString("bbee");
+    case mBBEE:
+        return QString("mbbee");
+    case uBBEE:
+        return QString::fromUtf8("ubbee");
     default:
         return QString("???");
     }
@@ -56,23 +56,23 @@ QString BitcoinUnits::name(int unit)
 {
     if (Params().NetworkID() == CBaseChainParams::MAIN) {
         switch (unit) {
-        case ALMEX:
-            return QString("ALMEX");
-        case mALMEX:
-            return QString("mALMEX");
-        case uALMEX:
-            return QString::fromUtf8("μALMEX");
+        case BBEE:
+            return QString("BBEE");
+        case mBBEE:
+            return QString("mBBEE");
+        case uBBEE:
+            return QString::fromUtf8("μBBEE");
         default:
             return QString("???");
         }
     } else {
         switch (unit) {
-        case ALMEX:
-            return QString("tALMEX");
-        case mALMEX:
-            return QString("mtALMEX");
-        case uALMEX:
-            return QString::fromUtf8("μtALMEX");
+        case BBEE:
+            return QString("tBBEE");
+        case mBBEE:
+            return QString("mtBBEE");
+        case uBBEE:
+            return QString::fromUtf8("μtBBEE");
         default:
             return QString("???");
         }
@@ -83,23 +83,23 @@ QString BitcoinUnits::description(int unit)
 {
     if (Params().NetworkID() == CBaseChainParams::MAIN) {
         switch (unit) {
-        case ALMEX:
-            return QString("ALMEX");
-        case mALMEX:
-            return QString("Milli-ALMEX (1 / 1" THIN_SP_UTF8 "000)");
-        case uALMEX:
-            return QString("Micro-ALMEX (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+        case BBEE:
+            return QString("BBEE");
+        case mBBEE:
+            return QString("Milli-BBEE (1 / 1" THIN_SP_UTF8 "000)");
+        case uBBEE:
+            return QString("Micro-BBEE (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
         default:
             return QString("???");
         }
     } else {
         switch (unit) {
-        case ALMEX:
-            return QString("TestALMEXs");
-        case mALMEX:
-            return QString("Milli-TestALMEX (1 / 1" THIN_SP_UTF8 "000)");
-        case uALMEX:
-            return QString("Micro-TestALMEX (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+        case BBEE:
+            return QString("TestBBEEs");
+        case mBBEE:
+            return QString("Milli-TestBBEE (1 / 1" THIN_SP_UTF8 "000)");
+        case uBBEE:
+            return QString("Micro-TestBBEE (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
         default:
             return QString("???");
         }
@@ -109,11 +109,11 @@ QString BitcoinUnits::description(int unit)
 qint64 BitcoinUnits::factor(int unit)
 {
     switch (unit) {
-    case ALMEX:
+    case BBEE:
         return 100000000;
-    case mALMEX:
+    case mBBEE:
         return 100000;
-    case uALMEX:
+    case uBBEE:
         return 100;
     default:
         return 100000000;
@@ -123,11 +123,11 @@ qint64 BitcoinUnits::factor(int unit)
 int BitcoinUnits::decimals(int unit)
 {
     switch (unit) {
-    case ALMEX:
+    case BBEE:
         return 8;
-    case mALMEX:
+    case mBBEE:
         return 5;
-    case uALMEX:
+    case uBBEE:
         return 2;
     default:
         return 0;

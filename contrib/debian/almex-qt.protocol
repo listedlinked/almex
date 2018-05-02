@@ -1,6 +1,6 @@
 [Protocol]
-exec=almex-qt '%u'
-protocol=almex
+exec=bbee-qt '%u'
+protocol=bbee
 input=none
 output=none
 helper=true

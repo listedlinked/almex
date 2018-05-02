@@ -2,7 +2,7 @@
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2017 The PIVX developers
-// Copyright (c) 2018 The Almex developers
+// Copyright (c) 2018 The Bbee developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 ////
@@ -1738,13 +1738,13 @@ bool CWallet::SelectCoins(const CAmount& nTargetValue, set<pair<const CWalletTx*
         return (nValueRet >= nTargetValue);
     }
 
-    //if we're doing only denominated, we need to round up to the nearest .1 ALMEX
+    //if we're doing only denominated, we need to round up to the nearest .1 BBEE
     if (coin_type == ONLY_DENOMINATED) {
         // Make outputs by looping through denominations, from large to small
         BOOST_FOREACH (int64_t v, DarKsendDenominations) {
             BOOST_FOREACH (const COutput& out, vCoins) {
                 if (out.tx->vout[out.i].nValue == v                                               //make sure it's the denom we're looking for
-                    && nValueRet + out.tx->vout[out.i].nValue < nTargetValue + (0.1 * COIN) + 100 //round the amount up to .1 ALMEX over
+                    && nValueRet + out.tx->vout[out.i].nValue < nTargetValue + (0.1 * COIN) + 100 //round the amount up to .1 BBEE over
                     ) {
                     CTxIn vin = CTxIn(out.tx->GetHash(), out.i);
                     int rounds = GetInputDarksendRounds(vin);
@@ -1806,12 +1806,12 @@ bool CWallet::SelectCoinsByDenominations(int nDenom, int64_t nValueMin, int64_t 
 
             // Function returns as follows:
             //
-            // bit 0 - 10000 ALMEX+1 ( bit on if present )
-            // bit 1 - 1000 ALMEX+1
-            // bit 2 - 100 ALMEX+1
-            // bit 3 - 10 ALMEX+1
-            // bit 4 - 1 ALMEX+1
-            // bit 5 - .1 ALMEX+1
+            // bit 0 - 10000 BBEE+1 ( bit on if present )
+            // bit 1 - 1000 BBEE+1
+            // bit 2 - 100 BBEE+1
+            // bit 3 - 10 BBEE+1
+            // bit 4 - 1 BBEE+1
+            // bit 5 - .1 BBEE+1
 
             CTxIn vin = CTxIn(out.tx->GetHash(), out.i);
 
@@ -2170,9 +2170,9 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, CAmount> >& vecSend,
                     if (coin_type == ALL_COINS) {
                         strFailReason = _("Insufficient funds.");
                     } else if (coin_type == ONLY_NOT10000IFMN) {
-                        strFailReason = _("Unable to locate enough funds for this transaction that are not equal 10000 ALMEX.");
+                        strFailReason = _("Unable to locate enough funds for this transaction that are not equal 10000 BBEE.");
                     } else if (coin_type == ONLY_NONDENOMINATED_NOT10000IFMN) {
-                        strFailReason = _("Unable to locate enough Darksend non-denominated funds for this transaction that are not equal 10000 ALMEX.");
+                        strFailReason = _("Unable to locate enough Darksend non-denominated funds for this transaction that are not equal 10000 BBEE.");
                     } else {
                         strFailReason = _("Unable to locate enough Darksend denominated funds for this transaction.");
                         strFailReason += " " + _("Darksend uses exact denominated amounts to send funds, you might simply need to anonymize some more coins.");
@@ -2210,7 +2210,7 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, CAmount> >& vecSend,
                 if (nChange > 0) {
                     // Fill a vout to ourself
                     // TODO: pass in scriptChange instead of reservekey so
-                    // change transaction isn't always pay-to-almex-address
+                    // change transaction isn't always pay-to-bbee-address
                     CScript scriptChange;
 
                     // coin control: send change to custom address

@@ -1,11 +1,11 @@
 [Desktop Entry]
 Encoding=UTF-8
-Name=ALMEX
-Comment=ALMEX P2P Cryptocurrency
-Exec=almex-qt %u
+Name=BBEE
+Comment=BBEE P2P Cryptocurrency
+Exec=bbee-qt %u
 Terminal=false
 Type=Application
-Icon=almex128
-MimeType=x-scheme-handler/almex;
+Icon=bbee128
+MimeType=x-scheme-handler/bbee;
 Categories=Office;Finance;
-Name[en_US]=almex-qt.desktop
+Name[en_US]=bbee-qt.desktop

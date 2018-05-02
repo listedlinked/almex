@@ -95,7 +95,7 @@ public:
 };
 
 /**
- * ALMEX RPC command dispatcher.
+ * BBEE RPC command dispatcher.
  */
 class CRPCTable
 {

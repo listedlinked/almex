@@ -9,8 +9,8 @@
 #include <vector>
 
 /**
- * CBaseChainParams defines the base parameters (shared between almex-cli and almexd)
- * of a given instance of the ALMEX system.
+ * CBaseChainParams defines the base parameters (shared between bbee-cli and bbeed)
+ * of a given instance of the BBEE system.
  */
 class CBaseChainParams
 {
